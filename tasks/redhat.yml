@@ -1,0 +1,17 @@
+---
+## /* vim: set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent: */
+
+- name: "Make sure we have yum-config-manager"
+  package:
+    name: "yum-utils"
+    state: "present"
+
+- name: "Add the repository"
+  command: "yum-config-manager --add-repo='https://download.stackify.com/rpm/stackify.repo'"
+  args:
+    creates: "/etc/yum.repos.d/stackify.repo"
+
+- name: "Install the agent"
+  package:
+    name: "stackify-agent"
+    state: "{{ stackify_agent_state }}"

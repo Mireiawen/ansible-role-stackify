@@ -1,0 +1,10 @@
+---
+## /* vim: set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent: */
+
+stackify_agent_state: "latest"
+stackify_environment: "production"
+stackify_agent_config_file: "/usr/local/stackify/stackify-agent/stackify-agent.conf"
+
+stackify_deb_key_id: "8044E2207D3590046E2F13F3DC10B4C03AC98159"
+stackify_deb_key_url: "https://download.stackify.com/GPG-KEY-stackify"
+stackify_deb_url: "https://download.stackify.com/deb"

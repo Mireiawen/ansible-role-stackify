@@ -1,0 +1,10 @@
+---
+## /* vim: set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent: */
+- name: "Converge"
+  hosts: "all"
+  vars:
+    stackify_agent_key: "invalid_test_key"
+  tasks:
+  - name: "Include mireiawen.stackify"
+    include_role:
+      name: "mireiawen.stackify"

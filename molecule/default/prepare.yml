@@ -1,0 +1,11 @@
+---
+## /* vim: set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent: */
+
+- name: "Prepare"
+  hosts: "all"
+  tasks:
+  - name: "Install which"
+    package:
+      name:
+      - "which"
+      state: "present"

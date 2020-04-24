@@ -1,0 +1,30 @@
+---
+## /* vim: set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent: */
+
+- name: "Make sure GPG is available"
+  package:
+    name: "gnupg"
+    state: "present"
+
+- name: "Make sure required applications are available"
+  package:
+    name:
+    - "procps"
+    state: "present"
+
+- name: "Add the Stackify key"
+  apt_key:
+    id: "{{ stackify_deb_key_id }}"
+    url: "{{ stackify_deb_key_url }}"
+    state: "present"
+
+- name: "Add the Stackify repository"
+  apt_repository:
+    repo: "deb {{ stackify_deb_url }} stable main"
+    filename: "stackify"
+    state: "present"
+
+- name: "Install the agent"
+  package:
+    name: "stackify-agent"
+    state: "{{ stackify_agent_state }}"

@@ -1,0 +1,9 @@
+---
+## /* vim: set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent: */
+
+- name: "Do the agent configuration"
+  script:
+    cmd: "update-config.sh '{{ stackify_agent_config_file }}' '{{ stackify_agent_key }}' '{{ stackify_environment }}'"
+  register: "config_result"
+  changed_when: "'CHANGED' in config_result.stdout"
+  notify: "Restart Agent"

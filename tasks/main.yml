@@ -1,0 +1,23 @@
+---
+## /* vim: set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent: */
+
+- name: "Install on Red Hat and CentOS"
+  include_tasks: "redhat.yml"
+  when: "ansible_distribution == 'RedHat'
+         or ansible_distribution == 'CentOS'
+         or ansible_distribution == 'Fedora'"
+
+- name: "Install on Debian and Ubuntu"
+  include_tasks: "debian.yml"
+  when: "ansible_distribution == 'Debian'
+         or ansible_distribution == 'Ubuntu'"
+
+- name: "Configure the agent"
+  include_tasks: "configure.yml"
+  when:
+  - "stackify_agent_key is defined"
+
+- name: "Enable the agent"
+  service:
+    name: "stackify-agent"
+    enabled: true

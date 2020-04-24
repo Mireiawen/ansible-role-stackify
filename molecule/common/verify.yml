@@ -1,0 +1,13 @@
+---
+## /* vim: set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent: */
+
+- name: "Verify"
+  hosts: "all"
+  tasks:
+  - name: "Make sure Stackify agent configurator is available"
+    command: "which stackify-agent-config"
+    register: "result"
+    changed_when: false
+  - name: "Check the install result"
+    assert:
+      that: "result is succeeded"
