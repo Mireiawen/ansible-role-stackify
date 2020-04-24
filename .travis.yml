@@ -14,7 +14,7 @@ install:
 
 # Make sure the role is found
 - "pushd .."
-- "ln -s ansible-role-mosh mireiawen.stackify"
+- "ln -s ansible-role-stackify mireiawen.stackify"
 - "popd"
 
 # Print versions before running
